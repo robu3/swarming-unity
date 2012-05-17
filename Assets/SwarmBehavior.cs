@@ -21,9 +21,12 @@ public class SwarmBehavior : MonoBehaviour {
 	protected virtual void Start () {
 		if (prefab == null)
 		{
-			prefab = (GameObject) GameObject.Instantiate(Resources.Load("Prefabs/Swarm/Drone_Prefab"));
+			// end early
+			Debug.Log("Please assign a drone prefab.");
+			return;
 		}
 
+		// instantiate the drones
 		GameObject droneTemp;
 		drones = new List<GameObject>();
 		for (int i = 0; i < droneCount; i++)
